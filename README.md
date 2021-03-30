@@ -1,5 +1,9 @@
-***splash screen has been added***
+***Login page***
+<br>
+***Username: Admin***
+<br>
+***Password: Test***
 <br>
 <br>
 
-![](splash.gif)
+![](login.gif)
