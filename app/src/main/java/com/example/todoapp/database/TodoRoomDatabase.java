@@ -30,9 +30,9 @@ public abstract class TodoRoomDatabase extends RoomDatabase {
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
 
-    public static RoomDatabase getDatabase(Context context){
+    public static TodoRoomDatabase getDatabase(final Context context){
         if(INSTANCE == null){
-            synchronized (RoomDatabase.class) {
+            synchronized (TodoRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             TodoRoomDatabase.class, "todo.db")
@@ -56,10 +56,9 @@ public abstract class TodoRoomDatabase extends RoomDatabase {
                 @Override
                 public void run() {
                     dao.deleteAll();
-                    Date date = new Date();
-                    ETodo task = new ETodo("Title", "Description", date, 1, false);
+                    ETodo task = new ETodo("title", "description", 1, new Date());
                     dao.insert(task);
-                    task = new ETodo("Title1", "Description1", date, 2, false);
+                    task = new ETodo("title1", "description1", 2, new Date());
                     dao.insert(task);
 
                 }

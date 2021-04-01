@@ -38,7 +38,7 @@ public class EditTodoActivity extends AppCompatActivity {
                 String title = titleEditText.getText().toString();
                 String desc = descEditText.getText().toString();
                 Date date = new Date();
-                ETodo task = new ETodo("Title", "Description", date, 1, false);
+                ETodo task = new ETodo(title, desc, 1, new Date());
                 repository.addTask(task);
                 Intent intent = new Intent( EditTodoActivity.this, MainActivity.class);
                 startActivity(intent);

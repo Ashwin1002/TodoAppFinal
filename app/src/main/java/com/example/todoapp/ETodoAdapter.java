@@ -1,7 +1,6 @@
 package com.example.todoapp;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -11,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.todoapp.model.ETodo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ETodoAdapter  extends RecyclerView.Adapter<ETodoAdapter.ViewHolder> {
@@ -29,19 +27,15 @@ public class ETodoAdapter  extends RecyclerView.Adapter<ETodoAdapter.ViewHolder>
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_todo, parent, false);
-        return new ViewHolder(view);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        return new ViewHolder(inflater, parent);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ETodo eTodo = data.get(position);
-
-        holder.titleTextView.setText(eTodo.getTitle());
-        holder.titleTextView.setText(eTodo.getDescription());
+        ETodo task = data.get(position);
+        holder.bind(task);
     }
-
     @Override
     public int getItemCount() {
 
@@ -57,10 +51,10 @@ public class ETodoAdapter  extends RecyclerView.Adapter<ETodoAdapter.ViewHolder>
         private TextView titleTextView;
         private TextView descTextView;
 
-        public ViewHolder(@NonNull View view) {
-            super(view);
-            titleTextView = view.findViewById(R.id.title_tv);
-            descTextView = view.findViewById(R.id.descripttion_tv);
+        public ViewHolder(LayoutInflater inflater, ViewGroup parent) {
+            super(inflater.inflate(R.layout.item_todo, parent, false));
+            titleTextView = itemView.findViewById(R.id.title_tv);
+            descTextView = itemView.findViewById(R.id.descripttion_tv);
         }
 
         public void bind(ETodo task) {

@@ -31,32 +31,28 @@ public class ETodo {
     @ColumnInfo(name="description")
     private String description;
 
-    @ColumnInfo(name = "todo_date")
+    @ColumnInfo(name = "createdDate")
     @TypeConverters({DateConverter.class})
-    private Date todo_date;
+    private Date createdDate;
 
     @ColumnInfo(name = "priority")
     private int priority;
 
-    @ColumnInfo(name = "is_completed")
-    private boolean is_completed;
 
-    @Ignore
-    public ETodo( int id, String title, String description, Date todo_date, int priority, boolean is_completed){
-        this.id = id;
-        this.title = title;
-            this.description = description;
-            this.todo_date = todo_date;
-            this.priority = priority;
-            this.is_completed = is_completed;
-    }
-
-    public ETodo( String title, String description, Date todo_date, int priority, boolean is_completed){
+    public ETodo(String title, String description, int priority, Date createdDate) {
         this.title = title;
         this.description = description;
-        this.todo_date = todo_date;
         this.priority = priority;
-        this.is_completed = is_completed;
+        this.createdDate = createdDate;
+    }
+
+    @Ignore
+    public ETodo(int id, String title, String description, int priority, Date createdDate) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.priority = priority;
+        this.createdDate = createdDate;
     }
 
     @NonNull
@@ -76,12 +72,12 @@ public class ETodo {
         this.description = description;
     }
 
-    public Date getTodo_date() {
-        return todo_date;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setTodo_date(Date todo_date) {
-        this.todo_date = todo_date;
+    public void setCreatedDate(Date todo_date) {
+        this.createdDate = createdDate;
     }
 
     public int getPriority() {
@@ -92,11 +88,5 @@ public class ETodo {
         this.priority = priority;
     }
 
-    public boolean is_completed() {
-        return is_completed;
-    }
 
-    public void setIs_completed(boolean is_completed) {
-        this.is_completed = is_completed;
-    }
 }

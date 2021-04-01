@@ -13,10 +13,9 @@ public class Repository {
     private static Repository INSTANCE;
     public TodoRoomDatabase database;
     public TodoDAO todoDAO;
-    public  LiveData<List<ETodo>> allTasks;
 
 
-    public Repository(Application application) {
+    private Repository(Application application) {
 
         TodoRoomDatabase database = (TodoRoomDatabase) TodoRoomDatabase.getDatabase(application);
         todoDAO = database.todoDao();
@@ -53,6 +52,15 @@ public class Repository {
             }
         });
     }
+    public void  update(ETodo task){
 
+        TodoRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                todoDAO.update(task);
+            }
+        });
+
+    }
 }
 
