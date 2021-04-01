@@ -26,7 +26,7 @@ public abstract class TodoRoomDatabase extends RoomDatabase {
     public abstract TodoDAO todoDao();
 
     private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriteExecutor =
+    public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
 
@@ -45,18 +45,21 @@ public abstract class TodoRoomDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    private static final Callback CALLBACK = new Callback() {
+    private static final RoomDatabase.Callback CALLBACK = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
 
+            TodoDAO dao = INSTANCE.todoDao();
+
             TodoRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
                 @Override
                 public void run() {
-                    TodoDAO dao = INSTANCE.todoDao();
                     dao.deleteAll();
                     Date date = new Date();
                     ETodo task = new ETodo("Title", "Description", date, 1, false);
+                    dao.insert(task);
+                    task = new ETodo("Title1", "Description1", date, 2, false);
                     dao.insert(task);
 
                 }

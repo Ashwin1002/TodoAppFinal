@@ -40,9 +40,17 @@ public class ETodo {
 
     @ColumnInfo(name = "is_completed")
     private boolean is_completed;
+
     @Ignore
-    public ETodo(){
+    public ETodo( int id, String title, String description, Date todo_date, int priority, boolean is_completed){
+        this.id = id;
+        this.title = title;
+            this.description = description;
+            this.todo_date = todo_date;
+            this.priority = priority;
+            this.is_completed = is_completed;
     }
+
     public ETodo( String title, String description, Date todo_date, int priority, boolean is_completed){
         this.title = title;
         this.description = description;
@@ -84,7 +92,7 @@ public class ETodo {
         this.priority = priority;
     }
 
-    public boolean isIs_completed() {
+    public boolean is_completed() {
         return is_completed;
     }
 
