@@ -1,8 +1,6 @@
-***Login page***
+***Adding task in recycler view***
 <br>
-***Username: Admin***
-<br>
-***Password: Test***
+
 <br>
 <br>
 
