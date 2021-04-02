@@ -14,6 +14,6 @@
 ***pass: admin***
 <br>
 <br>
-img src="https://user-images.githubusercontent.com/47735067/113425572-d8490e80-93f1-11eb-9a35-2e4f0ed9839c.gif"
+<img src="https://user-images.githubusercontent.com/47735067/113425572-d8490e80-93f1-11eb-9a35-2e4f0ed9839c.gif">
 
 
