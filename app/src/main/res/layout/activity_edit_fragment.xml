@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1e4588"
+    android:foregroundTint="#AC2D2D"
     android:orientation="vertical"
+    android:paddingStart="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".EditFragment">
+
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/todotask" />
 
     <EditText
         android:id="@+id/edit_txt_title"
@@ -35,7 +52,6 @@
         android:textColorHint="#FFFFFF" />
 
 
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
@@ -51,62 +67,41 @@
     <RadioGroup
         android:id="@+id/edit_rg_priority"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:orientation="horizontal">
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal"
+        android:weightSum="3">
 
         <RadioButton
             android:id="@+id/edit_rb_high"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/color_high_priority"
-            android:padding="0"
-            android:paddingStart="0"
-            android:paddingLeft="0"
-            android:paddingTop="0"
-            android:paddingEnd="0"
-            android:paddingRight="0"
-            android:paddingBottom="0"
             android:text="@string/edit_high"
             android:textColor="#FFFFFF" />
 
         <RadioButton
             android:id="@+id/edit_rb_medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/color_medium_priority"
-            android:padding="0"
-            android:paddingStart="0"
-            android:paddingLeft="0"
-            android:paddingTop="0"
-            android:paddingEnd="0"
-            android:paddingRight="0"
-            android:paddingBottom="0"
             android:text="@string/edit_medium"
             android:textColor="#FFFFFF" />
 
         <RadioButton
             android:id="@+id/edit_rb_low"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/color_low_priority"
-            android:padding="0"
-            android:paddingStart="0"
-            android:paddingLeft="0"
-            android:paddingTop="0"
-            android:paddingEnd="0"
-            android:paddingRight="0"
-            android:paddingBottom="0"
             android:text="@string/edit_low"
             android:textColor="#FFFFFF" />
 
     </RadioGroup>
+
     <EditText
         android:id="@+id/edit_txt_date"
         android:layout_width="match_parent"
@@ -124,8 +119,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="10sp"
         android:layout_weight="0"
+        android:backgroundTint="#CD6363"
         android:text="@string/edit_is_complete"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textStyle="italic" />
 
     <LinearLayout
         android:layout_width="match_parent"

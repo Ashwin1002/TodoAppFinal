@@ -22,10 +22,14 @@ import com.ashwin.todoapp.model.ViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 
 public class FragmentList extends Fragment {
     View rootView;
+    // Constant for date format
+    private static final String DATE_FORMAT = "dd/MM/yyy";
+    private SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT, Locale.getDefault());
     private ViewModel mTodoViewModel;
     RecyclerView todoRecyclerView;
     @Override
@@ -150,10 +154,9 @@ public class FragmentList extends Fragment {
             });
         }
         public void bind(ETodo todo){
-            SimpleDateFormat dateFormatter = new SimpleDateFormat("YYYY-MM-DD");
             mTitle.setText(todo.getTitle());
             mDesprition.setText(todo.getDescription());
-            mDate.setText(dateFormatter.format(todo.getTodo_date()));
+            mDate.setText(dateFormat.format(todo.getTodo_date()));
         }
 
     }

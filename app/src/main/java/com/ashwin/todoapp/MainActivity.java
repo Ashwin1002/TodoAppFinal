@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menu_logout:
                 mAlterDialog = new AlertDialog.Builder(this);
-                mAlterDialog.setMessage("Are you sure want to logout??")
+                mAlterDialog.setMessage("User logout?")
                         .setCancelable(false)
                         .setTitle(getString(R.string.app_name))
                         .setIcon(R.mipmap.ic_launcher);
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.delete_completed:
                 mAlterDialog = new AlertDialog.Builder(this);
-                mAlterDialog.setMessage("Are you sure want to delete completed task??")
+                mAlterDialog.setMessage("Delete All task?")
                         .setCancelable(false)
                         .setTitle(getString(R.string.app_name))
                         .setIcon(R.mipmap.ic_launcher);

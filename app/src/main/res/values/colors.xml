@@ -14,4 +14,5 @@
     <color name="color_high_priority">#D21502</color>
     <color name="color_medium_priority">#FDE64B</color>
     <color name="color_low_priority">#028A0F</color>
+    <color name="colorPrimaryLight">#C5CAE9</color>
 </resources>
