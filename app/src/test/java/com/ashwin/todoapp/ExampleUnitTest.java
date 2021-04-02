@@ -1,4 +1,4 @@
-package com.example.todoapp;
+package com.ashwin.todoapp;
 
 import org.junit.Test;
 
