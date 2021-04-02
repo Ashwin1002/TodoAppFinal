@@ -1,13 +1,13 @@
-package com.example.todoapp.model;
+package com.ashwin.todoapp.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
-
-import com.example.todoapp.database.DateConverter;
+import com.ashwin.todoapp.database.DateConverter;
 
 import java.util.Date;
 
@@ -31,28 +31,24 @@ public class ETodo {
     @ColumnInfo(name="description")
     private String description;
 
-    @ColumnInfo(name = "createdDate")
+    @ColumnInfo(name = "todo_date")
     @TypeConverters({DateConverter.class})
-    private Date createdDate;
+    private Date todo_date;
 
     @ColumnInfo(name = "priority")
     private int priority;
 
-
-    public ETodo(String title, String description, int priority, Date createdDate) {
-        this.title = title;
-        this.description = description;
-        this.priority = priority;
-        this.createdDate = createdDate;
-    }
-
+    @ColumnInfo(name = "is_completed")
+    private boolean is_completed;
     @Ignore
-    public ETodo(int id, String title, String description, int priority, Date createdDate) {
-        this.id = id;
+    public ETodo(){
+    }
+    public ETodo(String title, String description, Date todo_date, int priority, boolean is_completed){
         this.title = title;
         this.description = description;
+        this.todo_date = todo_date;
         this.priority = priority;
-        this.createdDate = createdDate;
+        this.is_completed = is_completed;
     }
 
     @NonNull
@@ -72,12 +68,12 @@ public class ETodo {
         this.description = description;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
+    public Date getTodo_date() {
+        return todo_date;
     }
 
-    public void setCreatedDate(Date todo_date) {
-        this.createdDate = createdDate;
+    public void setTodo_date(Date todo_date) {
+        this.todo_date = todo_date;
     }
 
     public int getPriority() {
@@ -88,5 +84,12 @@ public class ETodo {
         this.priority = priority;
     }
 
+    public boolean isIs_completed() {
+        return is_completed;
+    }
 
+    public void setIs_completed(boolean is_completed) {
+        this.is_completed = is_completed;
+    }
 }
+

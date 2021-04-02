@@ -1,4 +1,4 @@
-package com.example.todoapp;
+package com.ashwin.todoapp;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;

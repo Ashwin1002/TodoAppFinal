@@ -1,4 +1,4 @@
-package com.example.todoapp.database;
+package com.ashwin.todoapp.database;
 
 import androidx.room.TypeConverter;
 
